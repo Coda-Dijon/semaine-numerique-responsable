@@ -1,0 +1,55 @@
+.github/workflows/deploy.yml
+  s_1e39156b82016c::t_fe4895f415b2cf 1-51
+setup/main.ts
+  s_1e39156b82016c::t_3ec43b1eaa019b 1-10
+README.md
+  s_1e39156b82016c::t_fa402a2993f15a 48
+  s_1e39156b82016c::t_fe4895f415b2cf 1-47,49-55
+slides.md
+  s_1e39156b82016c::t_3ec43b1eaa019b 1-491
+.gitignore
+  s_1e39156b82016c::t_fe4895f415b2cf 1-4
+components/SlideAudio.vue
+  s_1e39156b82016c::t_3ec43b1eaa019b 7-28
+  s_1e39156b82016c::t_40d5a83c03865d 1-6,29-40
+components/Card.vue
+  s_f25eb928283772::t_b55a8d55c0ce7e 1-46
+components/Sticker.vue
+  s_f25eb928283772::t_94b0c25667b037 1-27
+layouts/section.vue
+  s_f25eb928283772::t_544bc60d9e19fe 1-85
+package.json
+  s_f25eb928283772::t_92790f70e3d41e 1-18
+scripts/make-demo2-audio.sh
+  s_f25eb928283772::t_f60df18c3f2a6a 1-39
+scripts/record-demos.mjs
+  s_f25eb928283772::t_604e0397310449 1-182
+styles/index.css
+  s_f25eb928283772::t_357b1450ba027a 1-580
+vite.config.ts
+  s_f25eb928283772::t_b232a6555cd3fb 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "534a25be633eff79fb5bbde5b2ddb94703c9c588",
+  "prompts": {},
+  "sessions": {
+    "s_1e39156b82016c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d017c9ea-9bb9-45be-b2af-1aa161a50562",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Yoan Thirion <yoan.thirion@gmail.com>"
+    },
+    "s_f25eb928283772": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b2021d38-41a1-4396-b929-f2f003214338",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Yoan Thirion <yoan.thirion@gmail.com>"
+    }
+  }
+}
