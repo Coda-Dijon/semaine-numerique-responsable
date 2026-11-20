@@ -1,0 +1,21 @@
+components/SlideAudio.vue
+  s_1e39156b82016c::t_1a7142d8269b8d 2-3,7,13-15
+slides.md
+  s_1e39156b82016c::t_27a55c73f71ea4 247
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "dec5f13b368995dc5a4c4cc59672da13b28d3db8",
+  "prompts": {},
+  "sessions": {
+    "s_1e39156b82016c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d017c9ea-9bb9-45be-b2af-1aa161a50562",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Yoan Thirion <yoan.thirion@gmail.com>"
+    }
+  }
+}
