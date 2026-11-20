@@ -1,0 +1,580 @@
+/* ============================================================
+   Thème neobrutal sobre, palette Coda
+   Bordures franches et ombres portées dures, mais une palette
+   retenue : fond blanc cassé, encre navy, teintes pastel pour
+   les cartes et un seul accent vif, le lime Coda.
+
+   Accessibilité : chaque couleur de fond a une couleur de texte
+   associée (--nb-on-*) qui respecte WCAG AA (≥ 4,5:1).
+     paper    + navy   18,2:1
+     lime     + navy   17,5:1   (teinte)
+     magenta  + navy   15,4:1   (teinte rose)
+     blue     + navy   15,6:1   (teinte)
+     lavender + navy   15,6:1   (teinte)
+     violet   + blanc  14,9:1   (violet profond Coda)
+     navy     + blanc  19,7:1
+   L'accent lime pur (#ddf849) est invisible sur fond clair (1,1:1) :
+   il n'est jamais utilisé seul, toujours cerné de navy ou sur fond navy.
+   ============================================================ */
+
+:root {
+  /* Palette Coda, version sobre */
+  --nb-navy: #080331;
+  --nb-deep: #18095a;
+  --nb-accent: #ddf849;
+  --nb-lime: #eef8b4;
+  --nb-magenta: #f8dcef;
+  --nb-violet: #2a1668;
+  --nb-blue: #dfe4ff;
+  --nb-lavender: #e7e2f6;
+  --nb-white: #ffffff;
+  --nb-link: #4b00eb;
+
+  /* Couleur de texte associée à chaque fond */
+  --nb-on-navy: var(--nb-white);
+  --nb-on-deep: var(--nb-white);
+  --nb-on-lime: var(--nb-navy);
+  --nb-on-magenta: var(--nb-navy);
+  --nb-on-violet: var(--nb-white);
+  --nb-on-blue: var(--nb-navy);
+  --nb-on-lavender: var(--nb-navy);
+  --nb-on-white: var(--nb-navy);
+
+  /* Rôles */
+  --nb-ink: var(--nb-navy);
+  --nb-paper: #f7f6f2;
+
+  --nb-border: 2.5px solid var(--nb-ink);
+  --nb-shadow: 4px 4px 0 var(--nb-ink);
+  --nb-shadow-sm: 2px 2px 0 var(--nb-ink);
+  --nb-radius: 0px;
+
+  --slidev-theme-primary: var(--nb-navy);
+}
+
+/* ---------- Base ---------- */
+
+.slidev-layout {
+  background: var(--nb-paper);
+  color: var(--nb-ink);
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  padding: 2.5rem 3.5rem;
+}
+
+/* ---------- Couples fond / texte ----------
+   Déclarés après .slidev-layout pour pouvoir colorer un layout entier */
+
+.nb-fill-navy     { background: var(--nb-navy);     color: var(--nb-on-navy); }
+.nb-fill-deep     { background: var(--nb-deep);     color: var(--nb-on-deep); }
+.nb-fill-lime     { background: var(--nb-lime);     color: var(--nb-on-lime); }
+.nb-fill-magenta  { background: var(--nb-magenta);  color: var(--nb-on-magenta); }
+.nb-fill-violet   { background: var(--nb-violet);   color: var(--nb-on-violet); }
+.nb-fill-blue     { background: var(--nb-blue);     color: var(--nb-on-blue); }
+.nb-fill-lavender { background: var(--nb-lavender); color: var(--nb-on-lavender); }
+.nb-fill-white    { background: var(--nb-white);    color: var(--nb-on-white); }
+
+/* Les titres et le code inline héritent de la couleur du fond */
+[class*='nb-fill-'] :is(h1, h2, h3, p, li) {
+  color: inherit;
+}
+
+/* Dans un aplat, le surlignage lime devient un soulignement épais */
+.slidev-layout [class*='nb-fill-'] strong {
+  background: none;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+/* Sur fond clair, les cartes gardent le surlignage lime */
+.slidev-layout :is(.nb-fill-white, .nb-fill-lime, .nb-fill-blue, .nb-fill-lavender, .nb-fill-magenta) strong {
+  background: linear-gradient(transparent 60%, var(--nb-accent) 60%);
+  text-decoration: none;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3 {
+  font-family: 'Archivo Black', 'Space Grotesk', sans-serif;
+  color: var(--nb-ink);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+}
+
+/* Titre sans boîte : un trait lime cerné de navy en dessous */
+.slidev-layout h1 {
+  font-size: 2.3rem;
+  margin-bottom: 1.4rem;
+  color: var(--nb-ink);
+  position: relative;
+  padding-bottom: 0.9rem;
+}
+
+.slidev-layout h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 4rem;
+  height: 0.55rem;
+  background: var(--nb-accent);
+  border: 2px solid var(--nb-ink);
+}
+
+/* Le thème par défaut grise le paragraphe qui suit un h1 */
+.slidev-layout h1 + p {
+  opacity: 1;
+}
+
+.slidev-layout h2 {
+  font-size: 1.6rem;
+  margin: 1rem 0 0.6rem;
+}
+
+.slidev-layout h3 {
+  font-size: 1.15rem;
+  margin: 0.8rem 0 0.4rem;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+/* Surlignage lime : le texte reste navy, contraste 16,5:1 */
+.slidev-layout strong {
+  background: linear-gradient(transparent 60%, var(--nb-accent) 60%);
+  color: var(--nb-navy);
+  font-weight: 700;
+}
+
+.slidev-layout a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: var(--nb-link);
+  text-underline-offset: 3px;
+}
+
+.slidev-layout ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.slidev-layout ul > li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin: 0.35rem 0;
+}
+
+.slidev-layout ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: currentColor;
+}
+
+.slidev-layout ol {
+  padding-left: 1.4rem;
+}
+
+.slidev-layout ol > li::marker {
+  font-family: 'Archivo Black', sans-serif;
+}
+
+/* ---------- Blockquote ---------- */
+
+.slidev-layout blockquote {
+  background: var(--nb-white);
+  color: var(--nb-navy);
+  border: var(--nb-border);
+  border-left: 10px solid var(--nb-ink);
+  box-shadow: var(--nb-shadow);
+  padding: 0.8rem 1.2rem;
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.slidev-layout blockquote p {
+  font-size: inherit;
+  color: inherit;
+}
+
+/* ---------- Code ---------- */
+
+.slidev-layout pre,
+.slidev-layout .slidev-code {
+  border: var(--nb-border) !important;
+  box-shadow: var(--nb-shadow) !important;
+  border-radius: var(--nb-radius) !important;
+}
+
+.slidev-layout :not(pre) > code {
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--nb-white);
+  color: var(--nb-navy);
+  border: 2px solid var(--nb-ink);
+  padding: 0.05rem 0.35rem;
+  font-size: 0.9em;
+}
+
+/* ---------- Tableaux ---------- */
+
+.slidev-layout table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow);
+  background: var(--nb-white);
+  color: var(--nb-navy);
+  width: 100%;
+}
+
+.slidev-layout th {
+  background: var(--nb-navy);
+  color: var(--nb-on-navy);
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 400;
+  text-align: left;
+  border-bottom: var(--nb-border);
+}
+
+.slidev-layout th,
+.slidev-layout td {
+  padding: 0.5rem 0.8rem;
+}
+
+.slidev-layout tr:not(:last-child) td {
+  border-bottom: 1px solid var(--nb-lavender);
+}
+
+/* ---------- Layout cover : fond navy Coda ---------- */
+
+.slidev-layout.cover {
+  background: var(--nb-navy);
+  color: var(--nb-on-navy);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slidev-layout.cover h1 {
+  font-size: 3.6rem;
+  color: var(--nb-white);
+}
+
+.slidev-layout.cover h1::after {
+  width: 6rem;
+  border-color: var(--nb-accent);
+}
+
+.slidev-layout.cover p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--nb-on-navy);
+}
+
+/* Sur fond navy, les bordures et ombres passent en blanc */
+.slidev-layout.cover .nb-sticker {
+  border-color: var(--nb-white);
+  box-shadow: none;
+}
+
+/* ---------- Layout center / statement ---------- */
+
+.slidev-layout.statement h1 {
+  font-size: 3rem;
+}
+
+.slidev-layout.statement h1::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------- Utilitaires ---------- */
+
+.nb-box {
+  background: var(--nb-white);
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow);
+  padding: 1rem 1.2rem;
+}
+
+.nb-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.nb-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Texte + image côte à côte */
+.nb-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nb-split-l { grid-template-columns: 3fr 2fr; }
+.nb-split-r { grid-template-columns: 2fr 3fr; }
+
+.nb-small p,
+.nb-small li {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.nb-small th,
+.nb-small td {
+  font-size: 0.85rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.nb-tight th,
+.nb-tight td {
+  padding: 0.2rem 0.6rem;
+}
+
+/* Texte réservé aux lecteurs d'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.nb-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nb-tilt-l { transform: rotate(-0.6deg); }
+.nb-tilt-r { transform: rotate(0.6deg); }
+
+/* ---------- Accessibilité ---------- */
+
+/* Pas d'animation pour qui l'a demandé au système */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Barre de navigation Slidev ---------- */
+
+.slidev-nav-controls,
+#slidev-goto-dialog {
+  border: var(--nb-border) !important;
+  border-radius: 0 !important;
+}
+
+/* ============================================================
+   Correspondances pour les decks Partiels & PEP
+   Les pages utilisent des classes courtes (card, callout, pill,
+   timeline…) rattachées ici à la palette et au style Coda.
+   ============================================================ */
+
+/* Slides denses : titres un peu plus compacts */
+.slidev-layout h1 { font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.7rem; }
+.slidev-layout.cover h1 { font-size: 3.4rem; }
+.slidev-layout p, .slidev-layout li { font-size: 1rem; line-height: 1.45; }
+
+.kicker {
+  display: inline-block;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--nb-navy);
+  color: var(--nb-accent);
+  padding: 0.15rem 0.55rem;
+  margin-bottom: 0.6rem;
+}
+.cover .kicker { background: var(--nb-accent); color: var(--nb-navy); }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+.card {
+  background: var(--nb-white);
+  color: var(--nb-navy);
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow);
+  padding: 0.8rem 1rem;
+}
+.card.blue   { background: var(--nb-blue); }
+.card.green  { background: var(--nb-lime); }
+.card.accent { background: var(--nb-magenta); }
+.card h3 {
+  font-size: 1rem;
+  margin: 0 0 0.4rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2.5px solid currentColor;
+}
+.card p, .card li { font-size: 0.85rem; line-height: 1.4; margin: 0; }
+.card ul { margin: 0.2rem 0 0; }
+.card ul > li { padding-left: 1.05rem; margin: 0.2rem 0; }
+.card ul > li::before { width: 0.4rem; height: 0.4rem; top: 0.5em; }
+.card .big { font-family: 'Archivo Black', sans-serif; font-size: 1.9rem; line-height: 1.1; color: var(--nb-navy); }
+.card .small { color: var(--nb-navy); opacity: 0.8; }
+
+.callout {
+  background: var(--nb-white);
+  color: var(--nb-navy);
+  border: var(--nb-border);
+  border-left: 10px solid var(--nb-navy);
+  box-shadow: var(--nb-shadow);
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.callout.blue  { background: var(--nb-blue); }
+.callout.green { background: var(--nb-lime); }
+.callout:not(.blue):not(.green) { background: var(--nb-magenta); }
+
+.pill {
+  display: inline-block;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  border: 2px solid var(--nb-navy);
+  box-shadow: var(--nb-shadow-sm);
+  padding: 0.05rem 0.5rem;
+  background: var(--nb-white);
+  color: var(--nb-navy);
+  transform: rotate(-2deg);
+}
+.pill.blue   { background: var(--nb-blue); }
+.pill.green  { background: var(--nb-lime); }
+.pill.accent { background: var(--nb-magenta); }
+
+.small { font-size: 0.8rem; color: var(--nb-navy); opacity: 0.75; }
+.slidev-layout .small, .slidev-layout .small p { font-size: 0.8rem; }
+
+/* Frise chronologique */
+.timeline { display: flex; margin-top: 1.6rem; }
+.timeline .step { flex: 1; position: relative; padding: 2.3rem 0.5rem 0; text-align: center; }
+.timeline .step::before { content: ""; position: absolute; top: 0.7rem; left: 0; right: 0; height: 4px; background: var(--nb-navy); }
+.timeline .step:first-child::before { left: 50%; }
+.timeline .step:last-child::before { right: 50%; }
+.timeline .dot {
+  position: absolute; top: 0.2rem; left: 50%; transform: translateX(-50%) rotate(45deg);
+  width: 1.1rem; height: 1.1rem; background: var(--nb-blue); border: 2.5px solid var(--nb-navy);
+}
+.timeline .step.hot .dot { background: var(--nb-accent); width: 1.3rem; height: 1.3rem; top: 0.1rem; }
+.timeline .date { font-family: 'Archivo Black', sans-serif; font-size: 1.15rem; }
+.timeline .step.hot .date { background: linear-gradient(transparent 55%, var(--nb-accent) 55%); display: inline; }
+.timeline .label { font-size: 0.85rem; line-height: 1.35; margin-top: 0.3rem; }
+
+/* Barre de temps de la soutenance */
+.bar { display: flex; height: 2.4rem; border: var(--nb-border); box-shadow: var(--nb-shadow); font-size: 0.72rem; font-weight: 700; }
+.bar > div { display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 0.3rem; line-height: 1.1; border-right: 2px solid var(--nb-navy); }
+.bar > div:last-child { border-right: none; }
+
+/* Tableaux denses */
+.slidev-layout table { font-size: 0.85rem; }
+.slidev-layout th, .slidev-layout td { padding: 0.35rem 0.7rem; }
+
+/* Titre coloré sur fond clair */
+.hl { background: linear-gradient(transparent 55%, var(--nb-accent) 55%); }
+
+.card .pill + h3 { margin-top: 0.7rem; }
+
+/* ============================================================
+   Ajouts pour la capsule « Tout en ligne, c'est forcément plus simple ? »
+   ============================================================ */
+
+/* Cartes de vote : une grosse lettre + le libellé */
+.vote { text-align: center; padding: 1.4rem 1rem; }
+.vote .big { font-size: 3.2rem; display: block; margin-bottom: 0.4rem; }
+.vote h3 { border-bottom: none; font-size: 1.4rem; margin: 0; }
+
+/* Chaîne de causes : A → B → C */
+.chain { display: flex; align-items: stretch; gap: 0.6rem; }
+.chain .card { flex: 1; }
+.chain .arrow { font-family: 'Archivo Black', sans-serif; font-size: 1.8rem; align-self: center; }
+
+/* URL de démo bien lisible au fond de la salle */
+.url {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.05rem;
+  font-weight: 700;
+  background: var(--nb-white);
+  border: var(--nb-border);
+  box-shadow: var(--nb-shadow);
+  padding: 0.3rem 0.8rem;
+}
+
+/* Sur la cover navy, le texte des cartes claires reprend la couleur de la carte */
+.slidev-layout.cover [class*='nb-fill-'] p { color: inherit; }
+.slidev-layout.cover .nb-card { box-shadow: 4px 4px 0 var(--nb-accent); }
+
+/* Icônes Phosphor (décoratives, aria-hidden) alignées sur le texte */
+.ico { display: inline-block; vertical-align: -0.15em; margin-right: 0.4rem; }
+.vote .big .ico { width: 3.2rem; height: 3.2rem; margin: 0; }
+.nb-chip .ico { margin-right: 0.25rem; }
+
+/* Vidéos de démo */
+.demo-row { display: flex; gap: 1.5rem; align-items: flex-start; }
+.demo-video { display: block; border: var(--nb-border); box-shadow: var(--nb-shadow); background: #000; }
+.demo-video-wide { height: 340px; }
+.demo-video-tall { height: 360px; }
+.demo-side { display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem; padding-top: 0.5rem; }
+
+/* Apparitions au clic : fondu + légère montée (désactivé si mouvement réduit) */
+.slidev-vclick-target { transition: opacity 0.35s ease, transform 0.35s ease; }
+.slidev-vclick-hidden { transform: translateY(12px); }
+
+/* Enseignements à côté des vidéos de démo */
+.demo-side { flex: 1; align-items: stretch; gap: 0.8rem; }
+.lesson {
+  display: flex; align-items: center; gap: 0.9rem;
+  background: var(--nb-white); color: var(--nb-navy);
+  border: var(--nb-border); box-shadow: var(--nb-shadow);
+  padding: 0.55rem 0.9rem;
+}
+.lesson .n {
+  font-family: 'Archivo Black', sans-serif; font-size: 1.7rem; line-height: 1;
+  min-width: 4.4rem; text-align: center;
+  background: var(--nb-accent); border: 2px solid var(--nb-ink); padding: 0.3rem 0.4rem;
+}
+.slidev-layout .lesson p { font-size: 0.95rem; line-height: 1.3; margin: 0; }
+.demo-video-wide { height: 300px; }
+
+/* Questions rappelées sur chaque slide de démo */
+.questions {
+  background: var(--nb-lavender); color: var(--nb-navy);
+  border: var(--nb-border); padding: 0.45rem 0.8rem;
+}
+.questions ul { margin: 0; }
+.slidev-layout .questions li { font-size: 0.85rem; line-height: 1.3; margin: 0.15rem 0; padding-left: 1.05rem; }
+.questions li::before { width: 0.4rem !important; height: 0.4rem !important; top: 0.5em !important; }
+.questions .pill { margin-bottom: 0.35rem; }
+
+/* Démo 2 : colonne audio + colonne enseignements */
+.demo-main { width: 46%; display: flex; flex-direction: column; gap: 0.9rem; }
+.demo-main .callout { font-size: 0.9rem; }
+
+/* Enseignements plus compacts pour tenir sous les questions */
+.demo-side { gap: 0.7rem; }
+.lesson { padding: 0.4rem 0.8rem; }
+.lesson .n { font-size: 1.45rem; min-width: 3.8rem; }
+.slidev-layout .lesson p { font-size: 0.88rem; }
+.demo-video-wide { height: 280px; }
