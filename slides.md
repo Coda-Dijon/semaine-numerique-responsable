@@ -244,7 +244,7 @@ Une personne aveugle ne voit pas la mise en page : elle n'a que <strong>ce que l
 </div>
 
 <!--
-⏱ 3:00 → 4:30 · l'enregistrement (31 s) démarre seul à l'arrivée sur la slide. Les 3 enseignements apparaissent au clic.
+⏱ 3:00 → 4:30 · l'enregistrement (31 s) se lance avec le bouton lecture du lecteur. Les 3 enseignements apparaissent au clic.
 
 CE QUE FAIT ENTENDRE L'ENREGISTREMENT
 Restitution simulée d'un lecteur d'écran, dans le style de VoiceOver, avec la voix de synthèse « Thomas » (la voix française par défaut de VoiceOver). Le texte reprend exactement ce que le code de la page annonce (arbre d'accessibilité relevé le 11/11/2026). À dire honnêtement si on le présente : « voici ce qu'entend un utilisateur de lecteur d'écran ».

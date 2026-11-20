@@ -1,26 +1,18 @@
 <script setup lang="ts">
-// Lecteur audio qui démarre à l'arrivée sur la slide et s'arrête en la quittant.
+// Lecteur audio lancé à la main (bouton lecture), arrêté et rembobiné
+// quand on quitte la slide.
 //   <SlideAudio src="/audio/fichier.m4a" />
-// Il ne joue que dans la vue principale : ni dans la vue présentateur
-// (sinon le son serait doublé), ni dans l'aperçu ou l'export.
 import { ref } from 'vue'
 import { asset } from '../setup/main'
-import { onSlideEnter, onSlideLeave, useSlideContext } from '@slidev/client'
+import { onSlideLeave } from '@slidev/client'
 
 const props = defineProps<{ src: string }>()
 const el = ref<HTMLAudioElement>()
-const { $renderContext } = useSlideContext()
-
-onSlideEnter(() => {
-  if ($renderContext.value !== 'slide' || !el.value) return
-  el.value.currentTime = 0
-  // Le navigateur peut refuser la lecture sans interaction préalable :
-  // le bouton lecture reste alors disponible.
-  el.value.play().catch(() => {})
-})
 
 onSlideLeave(() => {
-  el.value?.pause()
+  if (!el.value) return
+  el.value.pause()
+  el.value.currentTime = 0
 })
 </script>
 
