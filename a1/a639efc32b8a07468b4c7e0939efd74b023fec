@@ -1,0 +1,35 @@
+scripts/record-demos.mjs
+  s_1e39156b82016c::t_ae64d1e5ee5632 63,108-109
+  s_1e39156b82016c::t_90fc57f3e0e3b3 2,8-10,15,23-24,28,71-77,80-91,93-104,107,176-179,184-187,189-190,192,197
+scripts/make-demo2-audio.sh
+  s_1e39156b82016c::t_2c58d89ba17c10 2,5-9,19-36,39
+slides.md
+  s_1e39156b82016c::t_ae4bb1312e391c 189,194-196,201-207,209,211-213,216,218-219
+  s_1e39156b82016c::t_67906b337a8bac 133,135
+  s_1e39156b82016c::t_59cbc9454eb6ea 296-297
+  s_1e39156b82016c::t_5c83d5110facf7 246-248,253,256-260,262-264,267
+  s_1e39156b82016c::t_9889c468a8bb67 303,305,307-310,313
+  s_1e39156b82016c::t_25c47877fcc4c6 208
+  s_1e39156b82016c::t_94b49eb5c20cac 273
+  s_1e39156b82016c::t_816ed2ed9f225e 144,191
+  s_1e39156b82016c::t_84d053ecba7a7f 178
+  s_1e39156b82016c::t_bc58168e19c942 125
+README.md
+  s_1e39156b82016c::t_701a886577af7b 42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a1a639efc32b8a07468b4c7e0939efd74b023fec",
+  "prompts": {},
+  "sessions": {
+    "s_1e39156b82016c": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "d017c9ea-9bb9-45be-b2af-1aa161a50562",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Yoan Thirion <yoan.thirion@gmail.com>"
+    }
+  }
+}
