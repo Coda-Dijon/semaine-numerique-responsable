@@ -122,7 +122,7 @@ objective: Ressentir, pas auditer
 
 # Démo vécue
 
-On fait une vraie démarche sur le site de la Ville, dans trois conditions que rencontrent des habitants
+On se rend sur le site d'une commune, dans trois conditions que rencontrent des habitants
 
 ---
 layout: default
@@ -130,9 +130,9 @@ layout: default
 
 <div class="kicker">Démo</div>
 
-# Les démarches en ligne de la Ville de Dijon
+# Le site de la mairie de Sicemont
 
-<div class="url mt-2">eservices.dijon.fr › Démarches en ligne</div>
+<div class="url mt-2">sicemont.fr › Accueil</div>
 
 <div class="grid3 mt-8">
 <div class="card blue" v-click>
@@ -141,7 +141,7 @@ layout: default
 <ul>
 <li>Pas de souris : <code>Tab</code>, <code>Entrée</code>, flèches</li>
 <li>Où suis-je sur la page ?</li>
-<li>Peut-on atteindre toutes les démarches ?</li>
+<li>Combien de touches pour prendre rendez-vous ?</li>
 </ul>
 </div>
 <div class="card green" v-click>
@@ -175,7 +175,7 @@ Les vidéos sont dans public/videos/. Pour les réenregistrer la veille (le site
 layout: default
 ---
 
-<div class="kicker">Démo 1 · Clavier seul · aucune souris · vidéo accélérée ×2</div>
+<div class="kicker">Démo 1 · Clavier seul · aucune souris · vidéo accélérée ×4</div>
 
 # Sans souris, jusqu'où va-t-on ?
 
@@ -186,31 +186,37 @@ layout: default
 <div class="demo-side">
 <div class="questions">
 <ul>
-<li>Pas de souris : <code>Tab</code>, <code>Entrée</code>, flèches</li>
+<li>Pas de souris : <code>Tab</code>, <code>Entrée</code>, <code>Échap</code></li>
 <li>Où suis-je sur la page ?</li>
-<li>Peut-on atteindre toutes les démarches ?</li>
+<li>Combien de touches pour prendre rendez-vous ?</li>
 </ul>
 </div>
-<div class="lesson" v-click><span class="n">24</span><p>appuis sur <code>Tab</code> pour faire le tour de la page</p></div>
-<div class="lesson" v-click><span class="n">0</span><p>onglet atteignable : ils ne répondent <strong>qu'à la souris</strong></p></div>
-<div class="lesson" v-click><span class="n">4/5</span><p>thématiques hors d'atteinte : sport, culture, école, famille…</p></div>
+<div class="lesson" v-click><span class="n">124</span><p>appuis sur <code>Tab</code> pour atteindre « Rendez-vous en ligne »</p></div>
+<div class="lesson" v-click><span class="n">1</span><p>fenêtre qui s'ouvre <strong>toute seule</strong> en plein parcours et prend le clavier</p></div>
+<div class="lesson" v-click><span class="n">21</span><p>liens d'actualités pour 9 articles : les <strong>copies cachées</strong> du carrousel</p></div>
 </div>
 </div>
 
 <!--
-⏱ 2:00 → 3:00 · vidéo d'environ 18 s, accélérée ×2 (le dire à la salle), compteur de touches en bas à droite. Les 3 enseignements apparaissent au clic : les révéler après la vidéo, ou au fil de ce qu'elle montre.
+⏱ 2:00 → 3:00 · vidéo d'environ 30 s, accélérée ×4 (le dire à la salle), compteur de touches en bas à droite. Les 3 enseignements apparaissent au clic : les révéler après la vidéo, ou au fil de ce qu'elle montre.
 
-CE QUE MONTRE LA VIDÉO
-- Objectif annoncé : atteindre une démarche de l'onglet « Culture - Sports » (Carte Culture, sport, conservatoire…).
-- 24 appuis sur Tab font le tour complet de la page : logo, menu, connexion, les 5 cartes de « Citoyenneté », puis le pied de page.
-- Les onglets « Culture - Sports », « Enfance - Scolarité », « Démarches Famille », « Vie quotidienne » ne reçoivent jamais le focus : ils ne réagissent qu'au clic de souris.
-- Fin de la vidéo : on tente les flèches, rien ne bouge.
-- Le repère de position, c'est le fin contour bleu par défaut du navigateur : facile à perdre.
+CE QUE MONTRE LA VIDÉO (enregistrement du 24/11/2026)
+- Objectif annoncé : prendre rendez-vous en ligne, depuis l'accueil, sans souris.
+- Le bandeau cookies garde le focus : 2 Tab et Entrée sur « Tout refuser ». C'est le bon comportement pour une fenêtre modale.
+- Le menu déroulant s'ouvre au passage du clavier : on traverse un à un ses ~30 sous-liens avant d'atteindre la page.
+- Au 56ᵉ Tab, la fenêtre « S'abonner aux notifications » s'ouvre d'elle-même et capture le clavier. On tourne dedans, Échap la ferme, on reprend là où on était.
+- Le carrousel des actualités : 9 articles, mais 21 liens au clavier (les copies cachées servent à l'animation). Les flèches « Précédent » et « Suivant » du grand carrousel n'ont aucun contour de focus.
+- 124 Tab au total pour arriver sur « Rendez-vous en ligne », dans les Accès directs.
+
+POINTS POSITIFS À CITER (équilibre)
+- Des liens d'accès rapide en tout début de page (« contenu principal », « recherche ») : un habitant qui les connaît évite le menu.
+- Le focus est visible presque partout.
 
 À DIRE
-- « Au clavier, seules les démarches du premier onglet existent. Inscriptions scolaires, centre de loisirs, sport, culture : inaccessibles. »
+- « 124 touches pour prendre rendez-vous. Et en chemin, une fenêtre qui s'ouvre toute seule. »
 - « Sans souris, c'est le quotidien de personnes avec un handicap moteur, de personnes qui tremblent, ou qui pilotent leur ordinateur à la voix. »
-- Ton : constat, pas reproche. C'est un défaut fréquent et simple à corriger.
+- Ton : constat, pas reproche. Ce sont des défauts fréquents, et le site a déjà de bonnes bases.
+- Si le site évolue : relancer node scripts/record-demos.mjs et reporter les chiffres qu'il affiche.
 -->
 
 ---
@@ -237,35 +243,34 @@ Une personne aveugle ne voit pas la mise en page : elle n'a que <strong>ce que l
 </div>
 </div>
 <div class="demo-side">
-<div class="lesson" v-click><span class="n">0</span><p>titre structuré : impossible de parcourir la page <strong>comme un sommaire</strong></p></div>
-<div class="lesson" v-click><span class="n">\</span><p>un lien annoncé « barre oblique inversée », un autre « image » : <strong>où mènent-ils ?</strong></p></div>
-<div class="lesson" v-click><span class="n">5</span><p>onglets lus comme du simple texte : rien n'indique qu'on peut <strong>les activer</strong></p></div>
+<div class="lesson" v-click><span class="n">//</span><p>8 titres annoncés « barre oblique barre oblique » : le <strong>décor</strong> est lu comme du texte</p></div>
+<div class="lesson" v-click><span class="n">1</span><p>carte d'actualité = un seul long lien : titre, résumé et « Voir l'article » <strong>d'un bloc</strong></p></div>
+<div class="lesson" v-click><span class="n">10</span><p>liens nommés par une date seule : « 20 mars 2021, lien ». <strong>Vers quoi ?</strong></p></div>
 </div>
 </div>
 
 <!--
-⏱ 3:00 → 4:30 · l'enregistrement (31 s) se lance avec le bouton lecture du lecteur. Les 3 enseignements apparaissent au clic.
+⏱ 3:00 → 4:30 · l'enregistrement (45 s) se lance avec le bouton lecture du lecteur. Les 3 enseignements apparaissent au clic.
 
 CE QUE FAIT ENTENDRE L'ENREGISTREMENT
-Restitution simulée d'un lecteur d'écran, dans le style de VoiceOver, avec la voix de synthèse « Thomas » (la voix française par défaut de VoiceOver). Le texte reprend exactement ce que le code de la page annonce (arbre d'accessibilité relevé le 11/11/2026). À dire honnêtement si on le présente : « voici ce qu'entend un utilisateur de lecteur d'écran ».
-1. Navigation de lien en lien (Tab) :
-   - le premier logo n'a pas de texte alternatif → « lien, image » ;
-   - le second a un texte alternatif « \ » → « barre oblique inversée, lien » ;
-   - chaque carte de démarche est un seul long lien : titre + description lus d'un bloc.
-2. Rotor « Titres » : aucun. « Mes services » est du texte simple, pas un titre.
-3. Les 5 onglets : une liste de textes, sans rôle de bouton ou d'onglet.
+Restitution simulée d'un lecteur d'écran, dans le style de VoiceOver, avec la voix de synthèse « Thomas » (la voix française par défaut de VoiceOver). Le texte reprend ce que le code de la page d'accueil de sicemont.fr annonce (arbre d'accessibilité relevé le 24/11/2026). À dire honnêtement si on le présente : « voici ce qu'entend un utilisateur de lecteur d'écran ».
+1. Navigation de lien en lien (Tab) : les liens d'accès rapide, le logo, le menu. « Suivez nous sur linkedin2 » : le « 2 » est dans le nom du lien.
+2. Rotor « Titres » : la hiérarchie existe (un titre de niveau 1, des niveaux 2 et 3), mais le premier titre annoncé est celui du carrousel, qui change toutes les quelques secondes, et les « // » décoratifs font partie du texte des titres.
+3. Une carte d'actualité : titre, résumé, « ... » et « Voir l'article » forment un seul lien.
+4. « Prochains événements » : 10 liens dont le seul nom est une date.
 
-POINT POSITIF À CITER (équilibre)
-- Les liens des réseaux sociaux sont bien nommés (« Lien vers le compte Facebook (nouvelle fenêtre) ») : la bonne pratique existe déjà sur le site.
+POINTS POSITIFS À CITER (équilibre)
+- Des liens d'accès rapide en début de page, un vrai titre de niveau 1, des titres hiérarchisés : la base est là.
+- Le logo a un texte alternatif et les liens des réseaux sociaux sont nommés.
 
 À DIRE
-- « Une personne aveugle navigue par titres et par liens, comme on lirait un sommaire. Ici, pas de sommaire. »
+- « Une personne aveugle navigue par titres et par liens, comme on lirait un sommaire. Le sommaire existe, mais il est bruité. »
 - Révéler les enseignements un par un après l'écoute.
 
 OPTIONS
 - Démo en direct à la place : Mac VoiceOver (Cmd+F5), rotor VO+U ; Windows NVDA. Vérifier avant que le son du PC sort dans la sono.
 - Régénérer l'audio : sh scripts/make-demo2-audio.sh
-- Le navigateur peut bloquer le son avant toute interaction : avoir cliqué ou appuyé sur une touche avant suffit (c'est le cas en présentant). Sinon, bouton lecture.
+- Le son ne part qu'avec le bouton lecture : appuyer dessus dans la fenêtre projetée, pas dans la vue présentateur.
 -->
 
 ---
@@ -288,23 +293,24 @@ layout: default
 <li>Que fait-on pendant qu'on attend ?</li>
 </ul>
 </div>
-<div class="lesson" v-click><span class="n">13 s</span><p>d'écran blanc avant le premier affichage</p></div>
-<div class="lesson" v-click><span class="n">27 s</span><p>pour que la page soit <strong>complète</strong></p></div>
+<div class="lesson" v-click><span class="n">26 s</span><p>d'écran blanc avant le premier affichage</p></div>
+<div class="lesson" v-click><span class="n">42 s</span><p>pour que la page soit chargée, et le carrousel <strong>reste vide</strong></p></div>
 <div class="lesson" v-click><span class="n">1ʳᵉ</span><p>visite = la plus lente. C'est le cas d'une démarche faite <strong>une fois par an</strong></p></div>
 </div>
 </div>
 
 <!--
-⏱ 4:30 → 6:00 · vidéo d'environ 40 s, chronomètre en bas de l'écran. Les 3 enseignements apparaissent au clic.
+⏱ 4:30 → 6:00 · vidéo d'environ 55 s, chronomètre en bas de l'écran. Les 3 enseignements apparaissent au clic.
 
-CE QUE MONTRE LA VIDÉO
+CE QUE MONTRE LA VIDÉO (enregistrement du 24/11/2026)
 - Conditions simulées : écran de 360 px, débit 400 kbit/s, latence 400 ms, processeur ralenti ×4.
-- Premier chargement de la page des démarches : écran blanc pendant environ 13 s (le bandeau affiche « chargement… »), puis la page s'affiche sans ses icônes ; elle est complètement chargée vers 27 s (enregistrement du 11/11/2026).
-- On fait défiler, on touche « Acte d'état civil » : la page suivante arrive en 2 s, car les fichiers communs sont déjà en cache.
-- Si la vidéo est réenregistrée, mettre à jour les chiffres 13 s et 27 s.
+- Premier chargement de l'accueil de sicemont.fr : écran blanc pendant environ 26 s (le bandeau affiche « chargement… »), page chargée à 42 s.
+- On fait défiler puis on remonte : le grand carrousel en haut de page n'est toujours qu'un cadre rose vide, ses images arrivent encore.
+- La page continue de télécharger après son chargement (environ 2 Mo au chargement, près de 3 Mo 40 s plus tard).
+- Si la vidéo est réenregistrée, reporter les chiffres affichés par le script (26 s, 42 s).
 
 À DIRE
-- Parler pendant l'attente : « Qui attendrait 27 secondes devant une page ? »
+- Parler pendant l'attente : « Qui attendrait 26 secondes devant un écran blanc ? »
 - « Une démarche administrative, on la fait une ou deux fois par an : c'est presque toujours une première visite, donc le cas le plus lent. »
 - « Tout le monde n'a pas un téléphone récent ni un forfait illimité, et la couverture réseau n'est pas la même partout. »
 - Faire le lien avec le fil rouge : moins de poids = plus rapide = fonctionne sur du vieux matériel.

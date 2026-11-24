@@ -1,17 +1,18 @@
 // Enregistre les démos 1 (clavier seul) et 3 (vieux smartphone, réseau lent)
-// sur https://eservices.dijon.fr/Pages/mon-espace-citoyen-demarches
+// sur https://www.sicemont.fr/
 //
 //   node scripts/record-demos.mjs [--only=1|3] [dossier-captures]
 //
 // --only=1 ou --only=3 ne réenregistre qu'une démo (les autres vidéos restent).
 //
-// Les vidéos sont écrites dans public/videos/. À relancer la veille de la
-// conférence : le site évolue (blocs saisonniers).
+// Les vidéos sont écrites dans public/videos/. Les chiffres à reporter dans
+// slides.md (nombre de Tab, temps de chargement) sont affichés à la fin.
+// À relancer la veille de la conférence : le site évolue.
 import { chromium } from 'playwright-chromium'
 import { mkdir, readdir, rename, rm } from 'node:fs/promises'
 import path from 'node:path'
 
-const URL = 'https://eservices.dijon.fr/Pages/mon-espace-citoyen-demarches'
+const URL = 'https://www.sicemont.fr/'
 const OUT = path.resolve('public/videos')
 const args = process.argv.slice(2)
 const ONLY = args.find(a => a.startsWith('--only='))?.split('=')[1]
@@ -19,11 +20,12 @@ const SHOTS = args.find(a => !a.startsWith('--')) // captures de contrôle (facu
 const run = n => !ONLY || ONLY === String(n)
 const wait = ms => new Promise(r => setTimeout(r, ms))
 
-// La démo 1 est jouée en accéléré ×2 : toutes ses pauses sont divisées par 2
-const SPEED1 = 2
+// La démo 1 est jouée en accéléré ×4 : toutes ses pauses sont divisées par 4
+const SPEED1 = 4
 const wait1 = ms => wait(ms / SPEED1)
 
 await mkdir(OUT, { recursive: true })
+const stats = {}
 const browser = await chromium.launch()
 
 async function finish(context, page, name) {
@@ -58,7 +60,7 @@ if (run(1)) {
     box.textContent = 'Clavier seul · Tab × 0'
     document.addEventListener('keydown', e => {
       if (e.key === 'Tab') tabs++
-      const keys = { Tab: 'Tab', ArrowRight: '→', ArrowDown: '↓', Enter: 'Entrée', ' ': 'Espace' }
+      const keys = { Tab: 'Tab', ArrowRight: '→', ArrowDown: '↓', Enter: 'Entrée', ' ': 'Espace', Escape: 'Échap' }
       box.textContent = `Clavier seul · Tab × ${tabs}` + (e.key !== 'Tab' ? `  ·  ${keys[e.key] ?? e.key}` : '')
     }, true)
     const add = () => document.documentElement.appendChild(box)
@@ -66,29 +68,45 @@ if (run(1)) {
   }, overlayCss)
 
   const page = await context.newPage()
-  await page.goto(URL, { waitUntil: 'networkidle' })
+  await page.goto(URL, { waitUntil: 'networkidle', timeout: 90000 })
+  await wait1(2000)
+
+  // Bandeau cookies (il garde le focus) : Tab, Tab, Entrée sur « Tout refuser »
+  await page.keyboard.press('Tab'); await wait1(1200)
+  await page.keyboard.press('Tab'); await wait1(1200)
+  await page.keyboard.press('Enter'); await wait1(1500)
   await page.screenshot({ path: path.join(OUT, 'demo1-poster.png') })
-  await wait1(2500)
 
-  // Objectif annoncé à l'oral : atteindre l'onglet « Culture - Sports »
-  for (let i = 1; i <= 24; i++) {
+  // Objectif annoncé à l'oral : atteindre « Rendez-vous en ligne » (Accès directs).
+  // Une fenêtre de notifications s'ouvre seule au bout de quelques secondes et
+  // prend le focus : on y fait quelques Tab, puis Échap, et on reprend.
+  const focused = () => page.evaluate(() => {
+    const a = document.activeElement
+    return {
+      text: (a.innerText || a.getAttribute('aria-label') || '').trim(),
+      popup: !!a.closest('[class*="notification-popup"]'),
+    }
+  })
+  let tabs = 0, popupAt = 0, inPopup = 0
+  while (tabs < 250) {
     await page.keyboard.press('Tab')
-    await wait1(i <= 11 ? 900 : 600)
-    if (i === 6) await shot(page, 'demo1-tab06.png')
-  }
-  await shot(page, 'demo1-tab24.png')
-  await wait1(1500)
-
-  // Retour en haut, on tente les flèches et Entrée sur les onglets
-  await page.keyboard.press('Shift+Tab')
-  await page.evaluate(() => { document.activeElement.blur(); window.scrollTo(0, 0) })
-  await wait1(1200)
-  for (const k of ['Tab', 'Tab', 'Tab', 'Tab', 'Tab', 'Tab', 'ArrowRight', 'ArrowRight', 'ArrowDown', 'Tab']) {
-    await page.keyboard.press(k)
-    await wait1(800)
+    tabs++
+    await wait1(600)
+    const f = await focused()
+    if (f.popup) {
+      if (!popupAt) { popupAt = tabs; await shot(page, 'demo1-popup.png'); await wait1(1500) }
+      if (++inPopup === 8) {
+        await page.keyboard.press('Escape')
+        await wait1(1500)
+      }
+      continue
+    }
+    if (f.text === 'Rendez-vous en ligne') break
   }
   await shot(page, 'demo1-end.png')
-  await wait1(2500)
+  await wait1(4000)
+  // Le compteur à l'écran inclut les 2 Tab du bandeau cookies
+  stats.demo1 = { tabsAffiches: tabs + 2, fenetreNotificationsAuTab: popupAt + 2 }
   await finish(context, page, 'demo1-clavier.webm')
 }
 
@@ -155,28 +173,28 @@ if (run(3)) {
   await wait(1000)
   await page.evaluate(() => window.__go())
   await page.goto(URL, { waitUntil: 'load', timeout: 120000 })
+  stats.demo3 = await page.evaluate(() => ({
+    premierAffichage: performance.getEntriesByName('first-contentful-paint')[0]?.startTime / 1000,
+    chargee: performance.getEntriesByType('navigation')[0].loadEventEnd / 1000,
+  }))
   await shot(page, 'demo3-loaded.png')
   await page.screenshot({ path: path.join(OUT, 'demo3-poster.png') })
   await wait(2500)
 
-  // On fait défiler jusqu'à la démarche
-  for (let i = 0; i < 4; i++) {
-    await page.mouse.wheel(0, 220)
-    await wait(700)
+  // On fait défiler la page d'accueil : le carrousel est encore vide
+  for (let i = 0; i < 6; i++) {
+    await page.mouse.wheel(0, 260)
+    await wait(900)
   }
-  const link = page.locator('a[href*="demande-d-acte"]').first()
-  await link.scrollIntoViewIfNeeded()
-  await wait(1200)
-  await shot(page, 'demo3-before-tap.png')
-  await Promise.all([page.waitForLoadState('load'), link.tap()])
-  await page.waitForURL(/demande-d-acte/, { timeout: 120000 })
-  await page.waitForLoadState('load', { timeout: 120000 })
-  await shot(page, 'demo3-acte.png')
+  await shot(page, 'demo3-scroll.png')
+  await page.mouse.wheel(0, -2000)
   await wait(3000)
+  await shot(page, 'demo3-end.png')
   await finish(context, page, 'demo3-mobile-3g.webm')
 }
 
 await browser.close()
+console.log('Chiffres pour slides.md :', JSON.stringify(stats))
 
 // Nettoyage des vidéos temporaires éventuelles
 for (const f of await readdir(OUT)) if (!f.startsWith('demo')) await rm(path.join(OUT, f))

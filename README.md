@@ -39,7 +39,7 @@ Le site est servi sous un sous-chemin (`/semaine-numerique-responsable/`). Pour 
 
 ## Réenregistrer les démos
 
-Le site des e-services de Dijon évolue : relancer la veille de la conférence.
+Les démos portent sur https://www.sicemont.fr/. Le site évolue : relancer la veille de la conférence et reporter dans `slides.md` les chiffres affichés par le script (nombre de Tab, temps de chargement).
 
 ```bash
 npx playwright install chromium   # une seule fois
