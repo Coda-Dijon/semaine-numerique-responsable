@@ -495,3 +495,79 @@ De ce qu'on **prévoit dès le départ**
 - Transition : « Simplifier une démarche, c'est aussi demander moins d'informations à l'habitant… Est-ce que plus on collecte de données, meilleur est le service ? David ? »
 - Ajuster la phrase après la réunion de coordination du 24/11.
 -->
+
+---
+layout: default
+---
+
+<div class="kicker">David · 01 / Nos usages quotidiens</div>
+
+# Plus on collecte de données, meilleur est le service ?
+
+<div class="grid2 mt-8">
+<div class="card blue" v-click>
+<span class="pill blue">01</span>
+<h3><ph-database-bold class="ico" aria-hidden="true" />Collecter utile</h3>
+<ul>
+<li>À quoi sert cette donnée ?</li>
+<li>Existe-t-elle déjà ?</li>
+<li>À quelle fréquence est-elle nécessaire ?</li>
+</ul>
+</div>
+<div class="card green" v-click>
+<span class="pill green">02</span>
+<h3><ph-share-network-bold class="ico" aria-hidden="true" />Partager au bon endroit</h3>
+<ul>
+<li><strong>Fichier local</strong> : brouillon ponctuel</li>
+<li><strong>Mail</strong> : transmettre une version figée</li>
+<li><strong>OneDrive</strong> : travail individuel et partage ponctuel</li>
+<li><strong>Teams</strong> : collaborer sur un document commun</li>
+</ul>
+</div>
+</div>
+
+<div class="callout green mt-8" v-click>
+La bonne donnée, pour le bon usage, <strong>au bon endroit</strong>.
+</div>
+
+<!--
+Vote initial : d'accord / pas d'accord / ça dépend. Collecter au juste besoin du service ; vérifier les données existantes et les droits de réutilisation. Pour collaborer, privilégier un lien vers un document de référence plutôt que multiplier les pièces jointes. Respecter les règles internes de sécurité et de conservation.
+
+SOURCES
+- Programme de la conférence du 3 décembre 2026, p. 2–3 ; repères d'usage proposés pour cette intervention.
+-->
+
+---
+layout: default
+---
+
+<div class="kicker">David · 02 / De la charte à l'action</div>
+
+# La sobriété, c'est aussi savoir arrêter
+
+Data Lake OnDijon : une plateforme sans usage identifié
+
+<div class="grid2 mt-6">
+<div class="card blue" v-click>
+<span class="big" style="font-size: 3.2rem"><ph-hard-drives-bold class="ico" aria-hidden="true" /> 6</span>
+<h3>serveurs libérés à terme</h3>
+</div>
+<div class="card blue" v-click>
+<span class="big" style="font-size: 3.2rem"><ph-database-bold class="ico" aria-hidden="true" /> 9 To</span>
+<h3>de stockage libéré à terme</h3>
+</div>
+</div>
+
+<div class="callout green mt-6" v-click>
+Les données utiles <strong>restent disponibles</strong> dans les applications.
+</div>
+
+<div class="small mt-4">Charte de la donnée · juin 2025 · articles I.1 et I.3 : une collecte nécessaire et des ressources numériques optimisées.</div>
+
+<!--
+Arrêt en cours. 9 To correspondent approximativement à 3 millions de photos de 3 Mo. Ne pas assimiler les serveurs à des machines physiques éteintes ni annoncer une économie énergétique non mesurée. Vérifier les obligations de conservation avant suppression.
+Transition : mieux connaître et maîtriser les données et outils peut faciliter leur protection ; la sobriété ne garantit pas à elle seule la sécurité.
+
+SOURCES
+- Chiffres et état du Data Lake OnDijon fournis par l'intervenant. Charte de la donnée de Dijon Métropole, juin 2025, p. 2, articles I.1 et I.3.
+-->
