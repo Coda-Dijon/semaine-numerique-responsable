@@ -76,7 +76,7 @@ layout: default
 
 # Derrière l'écran, des situations très différentes
 
-<div class="grid3 mt-6">
+<div class="grid3 mt-4">
 <div class="card blue" v-click>
 <div class="big">15 %</div>
 <p>des 15 ans et plus en <strong>illectronisme</strong> : pas d'usage d'internet ou pas les compétences de base</p>
@@ -466,7 +466,7 @@ layout: cover
 
 # Alors, c'est plus simple ?
 
-<div class="grid3 mt-6">
+<div class="grid3 mt-4">
 <Card title="D'accord" color="lime"><template #icon><ph-thumbs-up-bold class="ico" aria-hidden="true" /></template>
 
 Pour beaucoup d'habitants, **oui**
@@ -570,4 +570,62 @@ Transition : mieux connaître et maîtriser les données et outils peut facilite
 
 SOURCES
 - Chiffres et état du Data Lake OnDijon fournis par l'intervenant. Charte de la donnée de Dijon Métropole, juin 2025, p. 2, articles I.1 et I.3.
+-->
+
+---
+layout: default
+---
+
+<div class="kicker">David · 03 / Ordres de grandeur</div>
+
+# 9 To, ça représente quoi ?
+
+<div class="grid3 mt-4">
+<div class="card blue" v-click>
+<span class="big" style="font-size: 2.4rem"><ph-camera-bold class="ico" aria-hidden="true" /> 3</span>
+<h3>millions de photos</h3>
+<p class="small">de 3 Mo chacune</p>
+</div>
+<div class="card green" v-click>
+<span class="big" style="font-size: 2.4rem"><ph-device-mobile-bold class="ico" aria-hidden="true" /> 70</span>
+<h3>smartphones pleins</h3>
+<p class="small">de 128 Go chacun</p>
+</div>
+<div class="card accent" v-click>
+<span class="big" style="font-size: 2.4rem"><ph-film-strip-bold class="ico" aria-hidden="true" /> 4 mois</span>
+<h3>de films en continu</h3>
+<p class="small">3 000 heures de vidéo HD, jour et nuit</p>
+</div>
+<div class="card accent" v-click>
+<span class="big" style="font-size: 2.4rem"><ph-music-notes-bold class="ico" aria-hidden="true" /> 17 ans</span>
+<h3>de musique non-stop</h3>
+<p class="small">9 millions de minutes en MP3</p>
+</div>
+<div class="card blue" v-click>
+<span class="big" style="font-size: 2.4rem"><ph-disc-bold class="ico" aria-hidden="true" /> 2,30 m</span>
+<h3>de DVD empilés</h3>
+<p class="small">plus de 1 900 DVD de 4,7 Go</p>
+</div>
+<div class="card green" v-click>
+<span class="big" style="font-size: 2.4rem"><ph-book-open-bold class="ico" aria-hidden="true" /> 9</span>
+<h3>millions de livres numériques</h3>
+<p class="small">d'environ 1 Mo chacun</p>
+</div>
+</div>
+
+<div class="small mt-4">Ordres de grandeur, 1 To = 1 000 Go. Ils parlent de volume stocké, pas de consommation d'énergie.</div>
+
+<!--
+Ordres de grandeur pour rendre « 9 To » concret. Ce sont des volumes de stockage : ne pas les traduire en énergie ou en CO₂ (rien n'a été mesuré, cf. note de la slide précédente).
+
+HYPOTHÈSES DE CALCUL (1 To = 1 000 Go = 1 000 000 Mo)
+- Photos : 9 000 000 Mo ÷ 3 Mo = 3 millions (chiffre de l'intervenant).
+- Smartphones : 9 000 Go ÷ 128 Go ≈ 70.
+- Vidéo HD : environ 3 Go par heure (ordre de grandeur des plateformes de streaming en HD) → 3 000 h ≈ 125 jours ≈ 4 mois sans interruption.
+- Musique : MP3 à 128 kbit/s ≈ 1 Mo par minute → 9 millions de minutes ≈ 17 ans d'écoute continue.
+- DVD : 9 000 Go ÷ 4,7 Go ≈ 1 915 DVD ; boîtier nu de 1,2 mm d'épaisseur → pile d'environ 2,30 m.
+- Livres numériques : un ePub de roman pèse environ 1 Mo → 9 millions.
+
+À DIRE
+- En choisir une ou deux à l'oral, pas les six : les photos et la pile de DVD parlent à tout le monde.
 -->
