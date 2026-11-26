@@ -25,12 +25,6 @@ layout: cover
 
 Simplicité des démarches, accessibilité, accompagnement des usagers
 
-<div class="mt-8 flex gap-4">
-  <Sticker color="lime" :rotate="-3">Séquence 1</Sticker>
-  <Sticker color="blue" :rotate="2">10 minutes</Sticker>
-  <Sticker color="magenta" :rotate="-1">Coda</Sticker>
-</div>
-
 <!--
 ⏱ 0:00 · Se présenter en une phrase : Coda, école du numérique à Dijon. Enchaîner directement sur le vote.
 -->
@@ -59,7 +53,7 @@ layout: default
 </div>
 
 <div class="callout blue mt-10" v-click>
-Pas de bonne réponse à ce stade : on revote à la fin des 10 minutes.
+Pas de bonne réponse à ce stade : on revote à la fin.
 </div>
 
 <!--
@@ -116,7 +110,6 @@ SOURCES
 layout: section
 num: 1
 color: lime
-duration: 4 minutes
 objective: Ressentir, pas auditer
 ---
 
@@ -196,6 +189,16 @@ layout: default
 <div class="lesson" v-click><span class="n">21</span><p>liens d'actualités pour 9 articles : les <strong>copies cachées</strong> du carrousel</p></div>
 </div>
 </div>
+<br/>
+<div class="profiles mt-3">
+<span class="profiles-title">Qui navigue au clavier ?</span>
+<span class="profile"><ph-wheelchair-bold class="ico" aria-hidden="true" />Handicap moteur</span>
+<span class="profile"><ph-hand-palm-bold class="ico" aria-hidden="true" />Tremblements</span>
+<span class="profile"><ph-eye-slash-bold class="ico" aria-hidden="true" />Aveugles</span>
+<span class="profile"><ph-magnifying-glass-plus-bold class="ico" aria-hidden="true" />Malvoyants</span>
+<span class="profile"><ph-microphone-bold class="ico" aria-hidden="true" />Commande vocale</span>
+<span class="profile"><ph-bandaids-bold class="ico" aria-hidden="true" />Bras plâtré</span>
+</div>
 
 <!--
 ⏱ 2:00 → 3:00 · vidéo d'environ 30 s, accélérée ×4 (le dire à la salle), compteur de touches en bas à droite. Les 3 enseignements apparaissent au clic : les révéler après la vidéo, ou au fil de ce qu'elle montre.
@@ -215,6 +218,15 @@ POINTS POSITIFS À CITER (équilibre)
 À DIRE
 - « 124 touches pour prendre rendez-vous. Et en chemin, une fenêtre qui s'ouvre toute seule. »
 - « Sans souris, c'est le quotidien de personnes avec un handicap moteur, de personnes qui tremblent, ou qui pilotent leur ordinateur à la voix. »
+- Dernier clic : la bande « Qui navigue au clavier ? ».
+
+QUI NAVIGUE AU CLAVIER (bande du bas)
+- Handicap moteur (paralysie, myopathie, sclérose en plaques…) : clavier, contacteur ou joystick qui envoient l'équivalent de Tab et Entrée.
+- Tremblements (maladie de Parkinson, grand âge) : la souris est trop imprécise pour viser un petit lien.
+- Personnes aveugles : le lecteur d'écran se pilote entièrement au clavier (c'est la démo suivante).
+- Malvoyants avec une loupe d'écran : seule une partie de la page est visible, le clavier évite de chercher le pointeur.
+- Commande vocale : on dicte « Tab », « Entrée », « suivant » : mêmes chemins que le clavier.
+- Situation temporaire : bras dans le plâtre, tendinite. Le handicap n'est pas toujours permanent.
 - Ton : constat, pas reproche. Ce sont des défauts fréquents, et le site a déjà de bonnes bases.
 - Si le site évolue : relancer node scripts/record-demos.mjs et reporter les chiffres qu'il affiche.
 -->
@@ -248,6 +260,15 @@ Une personne aveugle ne voit pas la mise en page : elle n'a que <strong>ce que l
 <div class="lesson" v-click><span class="n">10</span><p>liens nommés par une date seule : « 20 mars 2021, lien ». <strong>Vers quoi ?</strong></p></div>
 </div>
 </div>
+<br/>
+<div class="profiles mt-3">
+<span class="profiles-title">Qui écoute la page ?</span>
+<span class="profile"><ph-eye-slash-bold class="ico" aria-hidden="true" />Aveugles</span>
+<span class="profile"><ph-magnifying-glass-plus-bold class="ico" aria-hidden="true" />Malvoyants</span>
+<span class="profile"><ph-eyeglasses-bold class="ico" aria-hidden="true" />Vue qui baisse</span>
+<span class="profile"><ph-text-aa-bold class="ico" aria-hidden="true" />Dyslexie</span>
+<span class="profile"><ph-book-open-text-bold class="ico" aria-hidden="true" />Difficultés de lecture</span>
+</div>
 
 <!--
 ⏱ 3:00 → 4:30 · l'enregistrement (45 s) se lance avec le bouton lecture du lecteur. Les 3 enseignements apparaissent au clic.
@@ -266,6 +287,15 @@ POINTS POSITIFS À CITER (équilibre)
 À DIRE
 - « Une personne aveugle navigue par titres et par liens, comme on lirait un sommaire. Le sommaire existe, mais il est bruité. »
 - Révéler les enseignements un par un après l'écoute.
+- Dernier clic : la bande « Qui écoute la page ? ».
+
+QUI ÉCOUTE LA PAGE (bande du bas)
+- Personnes aveugles : le lecteur d'écran (VoiceOver, NVDA, TalkBack) lit tout, au clavier ou par gestes sur mobile.
+- Malvoyants : lecteur d'écran souvent combiné à une loupe d'écran.
+- Vue qui baisse avec l'âge : la lecture à voix haute du téléphone soulage les yeux.
+- Dyslexie : la synthèse vocale aide à suivre un texte long.
+- Difficultés de lecture (illettrisme, français langue étrangère) : faire lire la page à voix haute.
+- Message : un code qui annonce bien les titres et les liens sert bien au-delà des personnes aveugles.
 
 OPTIONS
 - Démo en direct à la place : Mac VoiceOver (Cmd+F5), rotor VO+U ; Windows NVDA. Vérifier avant que le son du PC sort dans la sono.
@@ -296,6 +326,15 @@ layout: default
 <div class="lesson" v-click><span class="n">26 s</span><p>d'écran blanc avant le premier affichage</p></div>
 <div class="lesson" v-click><span class="n">42 s</span><p>pour que la page soit chargée, et le carrousel <strong>reste vide</strong></p></div>
 <div class="lesson" v-click><span class="n">1ʳᵉ</span><p>visite = la plus lente. C'est le cas d'une démarche faite <strong>une fois par an</strong></p></div>
+<div class="profiles profiles-wrap mt-1">
+<span class="profiles-title">Qui est dans ce cas ?</span>
+<span class="profile"><ph-cell-signal-x-bold class="ico" aria-hidden="true" />Zones mal couvertes</span>
+<span class="profile"><ph-wallet-bold class="ico" aria-hidden="true" />Petit budget</span>
+<span class="profile"><ph-device-mobile-bold class="ico" aria-hidden="true" />Pas d'ordinateur</span>
+<span class="profile"><ph-clock-counter-clockwise-bold class="ico" aria-hidden="true" />Vieux téléphone</span>
+<span class="profile"><ph-gauge-bold class="ico" aria-hidden="true" />Forfait épuisé</span>
+<span class="profile"><ph-train-bold class="ico" aria-hidden="true" />En déplacement</span>
+</div>
 </div>
 </div>
 
@@ -314,6 +353,15 @@ CE QUE MONTRE LA VIDÉO (enregistrement du 24/11/2026)
 - « Une démarche administrative, on la fait une ou deux fois par an : c'est presque toujours une première visite, donc le cas le plus lent. »
 - « Tout le monde n'a pas un téléphone récent ni un forfait illimité, et la couverture réseau n'est pas la même partout. »
 - Faire le lien avec le fil rouge : moins de poids = plus rapide = fonctionne sur du vieux matériel.
+- Dernier clic : la bande « Qui est dans ce cas ? ».
+
+QUI EST DANS CE CAS (bande du bas)
+- Zones mal couvertes : campagne, fond de vallée, intérieur des bâtiments.
+- Petit budget : forfait avec peu de données, téléphone d'entrée de gamme.
+- Pas d'ordinateur : pour beaucoup de foyers, le smartphone est le seul accès à internet, démarches comprises.
+- Vieux téléphone : appareil ancien ou d'occasion, processeur lent, peu de mémoire.
+- Forfait épuisé : en fin de mois, le débit est réduit par l'opérateur.
+- En déplacement : train, voiture, zones de passage.
 -->
 
 ---
@@ -486,7 +534,6 @@ De ce qu'on **prévoit dès le départ**
 
 <div class="mt-8 flex gap-4" v-click>
   <Sticker color="lime" :rotate="-2">Simplifier, c'est aussi demander moins</Sticker>
-  <Sticker color="blue" :rotate="2">→ les données, avec David</Sticker>
 </div>
 
 <!--
@@ -581,32 +628,32 @@ layout: default
 # 9 To, ça représente quoi ?
 
 <div class="grid3 mt-4">
-<div class="card blue" v-click>
+<div class="card blue">
 <span class="big" style="font-size: 2.4rem"><ph-camera-bold class="ico" aria-hidden="true" /> 3</span>
 <h3>millions de photos</h3>
 <p class="small">de 3 Mo chacune</p>
 </div>
-<div class="card green" v-click>
+<div class="card green">
 <span class="big" style="font-size: 2.4rem"><ph-device-mobile-bold class="ico" aria-hidden="true" /> 70</span>
 <h3>smartphones pleins</h3>
 <p class="small">de 128 Go chacun</p>
 </div>
-<div class="card accent" v-click>
+<div class="card accent">
 <span class="big" style="font-size: 2.4rem"><ph-film-strip-bold class="ico" aria-hidden="true" /> 4 mois</span>
 <h3>de films en continu</h3>
 <p class="small">3 000 heures de vidéo HD, jour et nuit</p>
 </div>
-<div class="card accent" v-click>
+<div class="card accent">
 <span class="big" style="font-size: 2.4rem"><ph-music-notes-bold class="ico" aria-hidden="true" /> 17 ans</span>
 <h3>de musique non-stop</h3>
 <p class="small">9 millions de minutes en MP3</p>
 </div>
-<div class="card blue" v-click>
+<div class="card blue">
 <span class="big" style="font-size: 2.4rem"><ph-disc-bold class="ico" aria-hidden="true" /> 2,30 m</span>
 <h3>de DVD empilés</h3>
 <p class="small">plus de 1 900 DVD de 4,7 Go</p>
 </div>
-<div class="card green" v-click>
+<div class="card green">
 <span class="big" style="font-size: 2.4rem"><ph-book-open-bold class="ico" aria-hidden="true" /> 9</span>
 <h3>millions de livres numériques</h3>
 <p class="small">d'environ 1 Mo chacun</p>
