@@ -17,7 +17,10 @@ fonts:
   mono: JetBrains Mono
   weights: '400,600,700'
 layout: cover
+class: cover-intro
 ---
+
+<img class="cover-logo" src="/images/logo-nr.webp" alt="La semaine du numérique responsable, Dijon Métropole" width="560" height="365" />
 
 <div class="kicker">Semaine du numérique responsable · Dijon Métropole</div>
 

@@ -280,6 +280,14 @@
   color: var(--nb-on-navy);
 }
 
+.slidev-layout.cover .cover-logo {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  width: 12rem;
+  height: auto;
+}
+
 /* Sur fond navy, les bordures et ombres passent en blanc */
 .slidev-layout.cover .nb-sticker {
   border-color: var(--nb-white);
@@ -392,6 +400,7 @@
 /* Slides denses : titres un peu plus compacts */
 .slidev-layout h1 { font-size: 2rem; margin-bottom: 1rem; padding-bottom: 0.7rem; }
 .slidev-layout.cover h1 { font-size: 3.4rem; }
+.slidev-layout.cover.cover-intro h1 { font-size: 2.3rem; }
 .slidev-layout p, .slidev-layout li { font-size: 1rem; line-height: 1.45; }
 
 .kicker {
