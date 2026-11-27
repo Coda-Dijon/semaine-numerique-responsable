@@ -1,6 +1,6 @@
-# Tout en ligne, c'est forcément plus simple ?
+# Un service public numérique responsable
 
-Slides de la séquence Coda pour la conférence « Un service public numérique responsable : utile, accessible et de confiance », Semaine du numérique responsable, Dijon métropole, 3 décembre 2026.
+Slides de la conférence « Un service public numérique responsable : utile, accessible et de confiance », Semaine du numérique responsable, Dijon Métropole, 3 décembre 2026 : introduction de François Sarron-Pillot, puis trois interventions (Coda, David Fau pour Dijon Métropole, Mathias Murmylo pour l'ARNIA).
 
 **Slides en ligne : https://coda-dijon.github.io/semaine-numerique-responsable/**
 

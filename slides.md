@@ -1,11 +1,11 @@
 ---
 theme: default
-title: Tout en ligne, c'est forcément plus simple ?
+title: Un service public numérique responsable
 info: |
-  Séquence Coda de la conférence « Un service public numérique responsable :
-  utile, accessible et de confiance ». Semaine du numérique responsable,
-  Dijon métropole, 3 décembre 2026.
-author: Coda
+  Conférence « Un service public numérique responsable : utile, accessible
+  et de confiance ». Semaine du numérique responsable, Dijon Métropole,
+  3 décembre 2026.
+author: Dijon Métropole, Coda, ARNIA
 colorSchema: light
 aspectRatio: 16/9
 canvasWidth: 980
@@ -19,7 +19,35 @@ fonts:
 layout: cover
 ---
 
-<div class="kicker">Semaine du numérique responsable · Dijon métropole</div>
+<div class="kicker">Semaine du numérique responsable · Dijon Métropole</div>
+
+# Un service public numérique responsable : utile, accessible et de confiance
+
+3 décembre 2026
+
+<!--
+Slide d'accueil, affichée pendant l'installation du public.
+-->
+
+---
+layout: cover
+---
+
+<div class="kicker">Introduction</div>
+
+# François Sarron-Pillot
+
+Vice-Président délégué à la métropole connectée et à l'innovation numérique
+
+<!--
+Introduction de la conférence par François Sarron-Pillot.
+-->
+
+---
+layout: cover
+---
+
+<div class="kicker">Coda · Jeanne Pelisson et Tom Almarcha</div>
 
 # Tout en ligne, c'est forcément plus simple ?
 
@@ -544,6 +572,50 @@ De ce qu'on **prévoit dès le départ**
 -->
 
 ---
+layout: cover
+---
+
+<div class="kicker">Dijon Métropole · David Fau, responsable du service data</div>
+
+# Plus on collecte de données, meilleur est le service ?
+
+<!--
+Présentation de David Fau, responsable du service data de Dijon Métropole.
+-->
+
+---
+layout: default
+---
+
+<div class="kicker">À main levée</div>
+
+# « Plus on collecte de données, meilleur est le service. »
+
+<div class="grid3 mt-8">
+<div class="card green vote">
+<span class="big"><ph-thumbs-up-bold class="ico" aria-hidden="true" /></span>
+<h3>D'accord</h3>
+</div>
+<div class="card accent vote">
+<span class="big"><ph-thumbs-down-bold class="ico" aria-hidden="true" /></span>
+<h3>Pas d'accord</h3>
+</div>
+<div class="card blue vote">
+<span class="big"><ph-scales-bold class="ico" aria-hidden="true" /></span>
+<h3>Ça dépend</h3>
+</div>
+</div>
+
+<div class="callout blue mt-10" v-click>
+Pas de bonne réponse à ce stade : on revote à la fin.
+</div>
+
+<!--
+Vote initial : d'accord / pas d'accord / ça dépend.
+- Un clic par réponse : faire lever les mains, annoncer la répartition à voix haute et la noter : on y revient à la fin.
+-->
+
+---
 layout: default
 ---
 
@@ -578,7 +650,7 @@ La bonne donnée, pour le bon usage, <strong>au bon endroit</strong>.
 </div>
 
 <!--
-Vote initial : d'accord / pas d'accord / ça dépend. Collecter au juste besoin du service ; vérifier les données existantes et les droits de réutilisation. Pour collaborer, privilégier un lien vers un document de référence plutôt que multiplier les pièces jointes. Respecter les règles internes de sécurité et de conservation.
+Collecter au juste besoin du service ; vérifier les données existantes et les droits de réutilisation. Pour collaborer, privilégier un lien vers un document de référence plutôt que multiplier les pièces jointes. Respecter les règles internes de sécurité et de conservation.
 
 SOURCES
 - Programme de la conférence du 3 décembre 2026, p. 2–3 ; repères d'usage proposés pour cette intervention.
@@ -675,4 +747,124 @@ HYPOTHÈSES DE CALCUL (1 To = 1 000 Go = 1 000 000 Mo)
 
 À DIRE
 - En choisir une ou deux à l'oral, pas les six : les photos et la pile de DVD parlent à tout le monde.
+-->
+
+---
+layout: cover
+---
+
+# Alors, plus de données, meilleur service ?
+
+<div class="grid3 mt-4">
+<Card title="D'accord" color="lime"><template #icon><ph-thumbs-up-bold class="ico" aria-hidden="true" /></template>
+
+Quand la donnée **a un usage**
+
+</Card>
+<Card title="Pas d'accord" color="magenta"><template #icon><ph-thumbs-down-bold class="ico" aria-hidden="true" /></template>
+
+Quand elle **dort sur des serveurs**
+
+</Card>
+<Card title="Ça dépend" color="blue"><template #icon><ph-scales-bold class="ico" aria-hidden="true" /></template>
+
+De **pourquoi** on la collecte
+
+</Card>
+</div>
+
+<div class="mt-8 flex gap-4" v-click>
+  <Sticker color="lime" :rotate="-2">La bonne donnée, au bon endroit</Sticker>
+</div>
+
+<!--
+Refaire lever les mains rapidement : est-ce que ça a bougé ?
+Textes des cartes à valider avec David.
+Transition : « Mieux connaître ses données, c'est aussi mieux les protéger… La cybersécurité, c'est l'affaire des informaticiens ? Mathias ? »
+-->
+
+---
+layout: cover
+---
+
+<div class="kicker">ARNIA · Mathias Murmylo, directeur adjoint</div>
+
+# La cybersécurité, c'est l'affaire des informaticiens ?
+
+<!--
+Présentation de Mathias Murmylo, directeur adjoint de l'ARNIA.
+-->
+
+---
+layout: default
+---
+
+<div class="kicker">À main levée</div>
+
+# « La cybersécurité, c'est l'affaire des informaticiens. »
+
+<div class="grid3 mt-8">
+<div class="card green vote">
+<span class="big"><ph-thumbs-up-bold class="ico" aria-hidden="true" /></span>
+<h3>D'accord</h3>
+</div>
+<div class="card accent vote">
+<span class="big"><ph-thumbs-down-bold class="ico" aria-hidden="true" /></span>
+<h3>Pas d'accord</h3>
+</div>
+<div class="card blue vote">
+<span class="big"><ph-scales-bold class="ico" aria-hidden="true" /></span>
+<h3>Ça dépend</h3>
+</div>
+</div>
+
+<div class="callout blue mt-10" v-click>
+Pas de bonne réponse à ce stade : on revote à la fin.
+</div>
+
+<!--
+Vote initial : d'accord / pas d'accord / ça dépend.
+- Un clic par réponse : faire lever les mains, annoncer la répartition à voix haute et la noter : on y revient à la fin.
+- Les slides de Mathias s'insèrent juste après celle-ci.
+-->
+
+---
+layout: cover
+---
+
+# Alors, c'est l'affaire des informaticiens ?
+
+<div class="grid3 mt-4">
+<Card title="D'accord" color="lime"><template #icon><ph-thumbs-up-bold class="ico" aria-hidden="true" /></template>
+
+Pour la technique, **en partie**
+
+</Card>
+<Card title="Pas d'accord" color="magenta"><template #icon><ph-thumbs-down-bold class="ico" aria-hidden="true" /></template>
+
+Chaque agent est **un maillon**
+
+</Card>
+<Card title="Ça dépend" color="blue"><template #icon><ph-scales-bold class="ico" aria-hidden="true" /></template>
+
+Des **gestes de chacun** au quotidien
+
+</Card>
+</div>
+
+<!--
+Refaire lever les mains rapidement : est-ce que ça a bougé ?
+Textes des cartes à valider avec Mathias.
+-->
+
+---
+layout: cover
+---
+
+<div class="kicker">Semaine du numérique responsable · Dijon Métropole</div>
+
+# Échanges et questions
+
+<!--
+Questions de la salle à l'ensemble des intervenants.
 -->
